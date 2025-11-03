@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to InsureSafe Insurance</h1>
+    <p>Manage your insurance policies and claims efficiently</p>
+</div>
+
+<div class="dashboard">
+    <div class="stats">
+        <div class="stat-card">
+            <h3>Total Policies</h3>
+            <p class="stat-number">{{ policies|length }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Active Claims</h3>
+            <p class="stat-number">{{ claims|length }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Policy Types</h3>
+            <p class="stat-number">3</p>
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+            <a href="{{ url_for('show_policies') }}" class="btn btn-primary">View Policies</a>
+            <a href="{{ url_for('show_claims') }}" class="btn btn-secondary">View Claims</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

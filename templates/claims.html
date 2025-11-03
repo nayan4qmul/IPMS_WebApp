@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Insurance Claims - {{ super() }}{% endblock %}
+
+{% block content %}
+<h1>Insurance Claims</h1>
+
+<div class="table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Claim Number</th>
+                <th>Policy Number</th>
+                <th>Customer Name</th>
+                <th>Claim Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date Filed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for claim in claims %}
+            <tr>
+                <td>{{ claim.claim_number }}</td>
+                <td>{{ claim.policy_number }}</td>
+                <td>{{ claim.customer_name }}</td>
+                <td>{{ claim.claim_type }}</td>
+                <td>${{ "%.2f"|format(claim.amount) }}</td>
+                <td>
+                    <span class="status status-{{ claim.status.lower().replace(' ', '-') }}">
+                        {{ claim.status }}
+                    </span>
+                </td>
+                <td>{{ claim.date_filed }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
