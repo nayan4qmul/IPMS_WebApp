@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Sample data - in a real app, this would be a database
+# Sample data
 policies = [
     {
         'id': 1,
